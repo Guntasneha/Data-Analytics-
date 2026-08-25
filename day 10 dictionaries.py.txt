@@ -1,0 +1,121 @@
+
+DAYA 10:- Dictionarys
+
+Dictionary :- is a collection of key : value pair.
+key must be unique and it should be immutable datatype(int,str,tuple).
+it is represented in {}.
+example 1:-
+details = {1:2,'name':'sneha',(1,2):[1,2]}
+print(details)
+example 2:-
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543'}
+print(data_)
+print(data_['adhar'])
+print(data_['balance'])
+......
+Methods:-
+
+1.Accessing() :- dictionary can access by calling key, we will get value from that key.
+ Syntax ---> dict['key']
+get() method is also used to get the value from that key
+ Get syntax() ---> dict.get(key)
+example :-
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_)
+print(data_['adhar'])
+print(data_.get(2))
+
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_)
+data_['name']='jagadeesh'
+print(data_)
+
+2. update():- 
+update method in two methods 1.normal way 2.update
+1. normal way :- there is another way to update a key
+ Syntax ---> dict[key]=value
+
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_)
+data_['ac']=8765432109
+print(data_)
+
+2. update :- method is used to update a key , incase if the key is not present inside dict then it add that key:value
+ Syntax :- dict.update({key:value})
+
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_)
+data_['ac']=8765432109
+print(data_)
+data_.update({'name':'jagadeesh'})
+print(data_)
+data_.update({'ratiocard':'2345'})
+print(data_)
+
+3. values ():- is used get all the values from the dict.
+ Syntax ---> dict.values()
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_.values())
+
+4. keys():- is used get all the keys from the dict.
+ Syntax ---> dict.values()
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_.keys())
+
+5. items() :- is used get all the key:value seperated from the dict.
+ Syntax ---> dict.items()
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_.items())
+
+6. clear() :-used to delate entire from the dictionary
+ Syntax ---> dict.clear()
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_)
+data_.clear()
+
+7.delate():- used to delate from the key value pair in the dictionary
+data_ = {'name':'sneha','balance':'5600','adhar':'123456789','pancard':'frydb789543',2:[3,4]}
+print(data_)
+del data_['adhar']
+print(data_)
+data_.clear()
+print(data_)
+
+…………..
+
+                    STATEMENTS
+Statements are the 3 types
+1. conditional statements
+2.loops statements
+3. control statements
+ 1. if statements:- if condition becomes true,then it will execute inside block of code
+example 1:-
+age=19
+if age>=18:
+ print('eligible to vote')
+print(age)
+
+ incase it becomes false , then it will never entry inside block.
+example 2:-
+age = 15
+if age>=18:
+ print('eligible to vote')
+print(age)
+
+ 2.if-else statement:-else for if statement is a fall-back statement,incase if condition is false then else block will execute.
+example 1:-
+age = 15
+if age>=18:
+ print(f'your {age} eligible to vote')
+else:
+ print(f'your {age} you have to wait {18-age}')
+
+example 2:-
+a=90
+b=543
+if a>b:
+    print(a)
+else:
+    print(b)
+
+
