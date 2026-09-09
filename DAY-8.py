@@ -1,0 +1,41 @@
+DAY-8
+
+TUPLE:- Is collection of different datatypes that separated by ,(comma) and represented by().
+it is mutable.
+we can pass a tuple values and that can be assign to the variables, but should match the same number variables and values inside the tuple.
+
+name, age, batch = ('sneha',21,6)
+print(name)
+print(age)
+print(batch)
+
+functions of tuple:-
+
+Indexing:- 
+j = (1,'python',[3,4],(7,8))
+print(j[2][1])
+
+Index:- if item is not present in the tuple, it will raise value error.
+j = (1,'Python',[3,4],(7,8))
+print(t.index('python'))
+
+len() :-
+j = (1,'Python',[3,4],(7,8))
+print(len(j))
+
+max() :- is used to find out the maximum value from the tuple.
+so = (67,5,89,45)
+print(max(so))
+
+min() :- is used to find out the least value from the tuple.
+so = (67,5,89,45)
+print(min(so))
+
+count() :- used to count an item present in the tuple.
+so = (67,5,89,45,5,67,5)
+print(s0.count(5))
+
+concandination:-
+so = (45,67,89,04)
+do = (04,21,27)
+print(so + do)
