@@ -1,0 +1,97 @@
+                            
+
+                                                          DAY 1 PYTHON INTRODUCTION 
+
+What is the programming
+
+Prog-ram is the process of instruction =given by the user or programmer to planning what to do and how to do.
+
+ex:- 
+     user_en =2000
+     bal_ =1000
+     result = bal_ + user_en
+     print(result)
+   
+-------
+
+programming has two languages. 1)procedural language 2)object oriented language
+
+1) procedural language:-
+
+procedural language is organized mainly on functions 
+
+ex:-
+
+def cal_ad(a,b):
+   return a + b
+a=7
+b=9
+any_ = cal_ad(a,b)
+print(any_)
+
+
+2) object-oriented programming:-
+
+object oriented programming is organised mainly on classes and objects
+ex:-
+
+num=7
+print(type(num))
+
+-------------------
+***what is python
+
+python is high level language, interpreter language, dynamically typed language
+
+High level language:- python take care about memory allocation
+ex:-
+num=9
+print(type(num))
+print(type(id))
+
+interpreter language:- line by line executation is followed by python that is the reason we call it as interpreter language
+ex:-
+
+num=9
+num_2=90
+print(num)
+print(type(num))
+print(type(id))
+
+Dynamically language:- No need to mention the type of data passing to the variable
+ 
+ex:- 
+
+num = 78
+any_ = ['python']
+nums = [1,2]
+all_ = (1,2)
+print(type(num))
+print(type(any_))
+print(type(nums))
+print(type(all_))
+
+-----
+
+why python
+
+1. more library
+2. cross-platform
+3. open-source
+4. simple syntax
+
+-----
+
+Applications:-
+
+ use in data science
+ web development 
+ AI 
+ ML 
+ DL
+
+-----
+
+It was started in early 1980s, and realised in the years 1991 by 'guido van Rossum'
+And he pick the form the most loved series called 'monty python'
+The first version was released in the year 1991 which is python 0.9.0 and now the version we are using 3.14
