@@ -1,0 +1,253 @@
+------DAY-6  DCL COMMANDS------
+
+Data control language
+---------
+DCL(Data control language) commands Manages permissions and accesses control on database objects.
+
+they are two type of commands
+1.grand
+2.revoke
+
+COMMON PRIVILAGES
+-----------
+select ---> read data
+insert ---> insert data
+update ---> modify data
+delete ---> remove data
+all privilage ---> full access
+
+how to user creation
+---------------
+CREARE USER 'USERNAME' IDENTIFIED BY 'PASSWORD'
+
+
+GRANT
+------
+  GRANT PRIVILAGE ON TABLE_NAME TO 'USERNAME'
+
+REVOKE
+------
+  REVOKE PRIVILAGE ON TABLE_NAME FROM 'USERNAME'
+
+login username(root)
+-------------------
+open c drive---> program files---> mysql----> MySQL server 8.0----> bin--->backspace cmd ---> login(root)
+
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 25
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use da6;
+Database changed
+mysql> create table students(
+    -> sno int primary key,
+    -> sname varchar(30),
+    -> semail varchar(20)
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into students values(111,'sneha','sneha@codegnan');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from students;
++-----+-------+----------------+
+| sno | sname | semail         |
++-----+-------+----------------+
+| 111 | sneha | sneha@codegnan |
++-----+-------+----------------+
+1 row in set (0.00 sec)
+
+mysql> -- how to create user creation
+mysql> create user harshini identified by 'harshini123';
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create user bhagya identified by 'bhagya@345';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> -- permisions
+mysql> grant select,insert,update on students to harshini;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> grant select,drop on students to bhagya;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> -- revoke permissions
+mysql> grant select,drop on students to bhagya;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> revoke insert,update on students from harshini;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> rewoke select on students from bhagya;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rewoke select on students from bhagya' at line 1
+mysql> revoke select on students from bhagya;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table emp(
+    -> emp_id int primary key,
+    -> ename varchar(30),
+    -> esal decimal(10,2)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> insert into emp(ename.esal)values('sneha',3000);
+ERROR 1054 (42S22): Unknown column 'ename.esal' in 'field list'
+mysql> insert into emp(ename,esal)values('sneha',3000);
+ERROR 1364 (HY000): Field 'emp_id' doesn't have a default value
+mysql> create table employees(
+    -> emp_id int auto_increment primary key,
+    -> ename varchar(30),
+    -> esal decimal(10,2)
+    -> );
+ERROR 1050 (42S01): Table 'employees' already exists
+mysql> drop table employees;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table employees(
+    -> emp_id int auto_increment primary key,
+    -> ename varchar(30),
+    -> esal decimal(10,2)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into employees(ename,esal)values('malli',4000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from employees;
++--------+-------+---------+
+| emp_id | ename | esal    |
++--------+-------+---------+
+|      1 | malli | 4000.00 |
++--------+-------+---------+
+1 row in set (0.03 sec)
+
+mysql> insert into employees(ename,esal)values('mahi',2000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select*from employees;
++--------+-------+---------+
+| emp_id | ename | esal    |
++--------+-------+---------+
+|      1 | malli | 4000.00 |
+|      2 | mahi  | 2000.00 |
++--------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> drop table employees;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table products(
+    -> products int auto_increment primary key,
+    -> pname varchar(30),
+    -> price decimal(10,2),
+    -> quantity int,
+    -> totalamount decimal(10,2)generated always as(price*quantity)stored);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into products(pname,price,quantity)values('mobile',19977.99,2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from products;
++----------+--------+----------+----------+-------------+
+| products | pname  | price    | quantity | totalamount |
++----------+--------+----------+----------+-------------+
+|        1 | mobile | 19977.99 |        2 |    39955.98 |
++----------+--------+----------+----------+-------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+Microsoft Windows [Version 10.0.26200.9168]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u harshini -p
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 27
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use da6;
+Database changed
+mysql> select*from students;
++-----+-------+----------------+
+| sno | sname | semail         |
++-----+-------+----------------+
+| 111 | sneha | sneha@codegnan |
++-----+-------+----------------+
+1 row in set (0.04 sec)
+
+mysql> insert into student values(222,'pallavi','pallavi@codegnan');
+ERROR 1142 (42000): INSERT command denied to user 'harshini'@'localhost' for table 'student'
+mysql> insert into students values(222,'pallavi','pallavi@codegnan');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> delete from students where sid=111;
+ERROR 1142 (42000): DELETE command denied to user 'harshini'@'localhost' for table 'students'
+mysql> drop table students;
+ERROR 1142 (42000): DROP command denied to user 'harshini'@'localhost' for table 'students'
+mysql> -- after revoke
+mysql> insert into students values(333,'mani','mani@codegnan');
+ERROR 1142 (42000): INSERT command denied to user 'harshini'@'localhost' for table 'students'
+mysql> select* from students;
++-----+---------+------------------+
+| sno | sname   | semail           |
++-----+---------+------------------+
+| 111 | sneha   | sneha@codegnan   |
+| 222 | pallavi | pallavi@codegnan |
++-----+---------+------------------+
+2 rows in set (0.00 sec)
+
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u bhagya -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use da6;
+Database changed
+mysql> select*from students;
++-----+---------+------------------+
+| sno | sname   | semail           |
++-----+---------+------------------+
+| 111 | sneha   | sneha@codegnan   |
+| 222 | pallavi | pallavi@codegnan |
++-----+---------+------------------+
+2 rows in set (0.01 sec)
+
+mysql> alter table students drop column semail;
+ERROR 1142 (42000): ALTER command denied to user 'bhagya'@'localhost' for table 'students'
+mysql> -- after revoke
+mysql> select* from students;
+ERROR 1142 (42000): SELECT command denied to user 'bhagya'@'localhost' for table 'students'
+mysql> drop table students;
+Query OK, 0 rows affected (0.05 sec)
+
+
+
+

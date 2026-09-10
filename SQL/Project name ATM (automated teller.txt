@@ -1,0 +1,27 @@
+Project name: ATM (automated teller machine)
+
+         backend -- python
+
+technologies: basic python(statements, conditions, variables, data types, operations)
+
+pin authentation, withdraw, deposite, pin change, mini statement 
+
+sneha_details_SBI = {
+    'name' : 'sneha',
+    'adr' : '1237659867',
+    'pan' : 'GSNJ2127J',
+    'ATMPIN' : '9988',
+}
+all_attmps = 3
+while all_attmps > 0:
+    user_pin = input('enter a your atm pin: ')
+    if user_pin in sneha_details_SBI['ATMPIN']:
+        print('welcome SBI ATM')
+        break
+    else:
+        all_attmps -= 1
+        if all_attmps > 0:
+            print(f'incorrect pin entered and you have {all_attmps}left')
+        else:
+            print('your card is blocked')
+
