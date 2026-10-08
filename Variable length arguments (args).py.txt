@@ -1,0 +1,89 @@
+Variable length arguments (*args),Keyword Variable length arguments (**kwargs)
+
+Variable length arguments : We can pass any number of arguments,but the data
+will be stored in a tuple,but we use symbolically *args as representation
+
+def new(*a):
+    """Usage of Variable length arguments"""
+    print(a)
+    print(type(a))
+#new() #it returns empty tuple as we didnot pass any args
+#new(1,2,3)
+#new(12,3)
+#new("codegnan","saketh","python",34)
+
+details =[1234,'Data','Webinar','Hackathon']
+new(details) #in this case entire list is stored inside a tuple as a single
+#obj
+new(*details) #in this case we can extract the values from the above list as
+#a tuple
+
+a,b,c = 1,3,4
+#in the below case we can pass any number of values into an object
+#using * representation
+a,*b,c = 1,"saketh","data","codegnan",34
+print(a)
+print(c)
+print(b)
+
+#* is mainly used to unpack the values from a collection
+a = ['codegnan','python','data',45,6.7]
+print(*a)
+for i in a:
+    print(i,end=' ')
+#in above case both for loop and line 32 result is same  
+
+#Task:Find the sum of arguments in a function
+
+def add(*a):
+    """Sum of arguments usage using *args"""
+    print(a)
+    print(type(a))
+    #we need to have output variable
+    result = 0
+    for i in a:
+        #if type(i) == int or type(i) == float:
+        if type(i) in (int,float):
+            result = result +i
+            #print(result)
+    return result
+#print(add())
+#print(add(1,3,4))
+print(add(12,3,4,'codegnan','saketh',2.3))
+
+Keyword Variable length arguments --> We can pass any number of keyword
+arguments,we will use the representation as **kwargs,data is stored in
+dictionary..
+
+def admission(**kwargs):
+    """Usage of Keyword variable length arguments"""
+    print(kwargs)
+    print(type(kwargs))
+#admission() #empty dictionary
+#admission(name="Saketh",mobile=8106429771,email_id='saketh@codegnan.com')  
+
+details ={'idnos':[234,345,342],
+          'names':['Akash','Dileep','Sunny'],
+          'batches':['DA','PFS','JFS']}
+admission(**details)
+'''
+#usage of both *args and **kwargs into a function
+
+def simple(*a,**b):
+    """Usage of *args and **kwargs"""
+    print(a)
+    print(b)
+    result = 0
+    for i in a:
+        #if type(i) == int or type(i) == float:
+        if type(i) in (int,float):
+            result = result +i
+    print(result)
+    for key,value in b.items():
+        print(f'Key is {key}')
+        print(f'Value is {value}')
+simple()
+simple(1,2,3,'poll',23,name="Codegnan",place="Vizag")
+#simple(23,4,batch="PFS6",data="Python",3.5) #Positional arguments always
+#follow keyword arguments 
+        
